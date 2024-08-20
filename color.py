@@ -34,28 +34,23 @@ def color_ascii(img, scale):
         values.append(row)
         hexes.append(hex_row)
 
+    # Prepare ASCII art
     ascii_art = "\n".join("".join(line) for line in values)
 
+    # Create the Tkinter window
     root = tk.Tk()
     root.title("ASCII Art")
 
+    # Determine the font
     font_name = "Courier"
     font_size = 6
     text_font = font.Font(family=font_name, size=font_size)
 
+    # Create a Text widget
     text_widget = tk.Text(root, font=(font_name, font_size), width=len(values[0]), height=len(values))
     text_widget.pack(expand=True, fill='both')
 
-    frame = tk.Frame(root)
-    frame.pack(expand=True, fill='both')
-
-    text_widget = tk.Text(frame, font=(font_name, font_size), width=len(values[0]), height=len(values))
-    scrollbar = tk.Scrollbar(frame, command=text_widget.yview)
-    text_widget.config(yscrollcommand=scrollbar.set)
-
-    text_widget.pack(side=tk.LEFT, expand=True, fill='both')
-    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
+    # Insert text and apply colors
     start_index = "1.0"
     for row_idx, (line, hex_row) in enumerate(zip(values, hexes)):
         for col_idx, (char, color) in enumerate(zip(line, hex_row)):
@@ -68,12 +63,14 @@ def color_ascii(img, scale):
         text_widget.insert(tk.END, '\n')
         start_index = text_widget.index(tk.END)
 
+    # Disable text widget editing
     text_widget.config(state=tk.DISABLED)
 
+    # Update the widget to reflect changes
     root.update_idletasks()
     root.mainloop()
     end = time.perf_counter()
     print(end - start)
 
-color_ascii("us-testing.jpg", 0.5)
+color_ascii("us-testing.jpg", 0.1)
 
