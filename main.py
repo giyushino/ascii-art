@@ -29,19 +29,15 @@ def ascii(img, scale):
 
     ascii_art = "\n".join("".join(line) for line in draw)
 
-    # Create a new Tkinter window to display the ASCII art
     root = tk.Tk()
     root.title("ASCII Art")
 
-    # Set the width and height of the window based on the size of the ASCII art
     text_widget = tk.Text(root, font=("Courier", 8), width=len(draw[0]), height=len(draw))
     text_widget.insert(tk.END, ascii_art)
-    text_widget.config(state=tk.DISABLED)  # Make the Text widget read-only
+    text_widget.config(state=tk.DISABLED)  
     text_widget.pack()
     root.mainloop()
 
-
-ascii("pia 6.jpg", 0.1)
 
 
 
