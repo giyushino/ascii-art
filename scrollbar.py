@@ -30,27 +30,23 @@ def ascii(img, scale):
 
     ascii_art = "\n".join("".join(line) for line in draw)
 
-    # Create a new Tkinter window to display the ASCII art
     root = tk.Tk()
     root.title("ASCII Art")
 
-    # Create a frame to contain the text widget and scrollbars
     frame = tk.Frame(root)
     frame.pack(fill='both', expand=True)
 
-    # Create the text widget
+ 
     text_widget = tk.Text(frame, font=("Courier", 8), wrap='none')
     text_widget.insert(tk.END, ascii_art)
-    text_widget.config(state=tk.DISABLED)  # Make the Text widget read-only
+    text_widget.config(state=tk.DISABLED)  
 
-    # Create vertical and horizontal scrollbars
     v_scroll = Scrollbar(frame, orient='vertical', command=text_widget.yview)
     h_scroll = Scrollbar(frame, orient='horizontal', command=text_widget.xview)
 
-    # Configure the text widget to use the scrollbars
     text_widget.config(yscrollcommand=v_scroll.set, xscrollcommand=h_scroll.set)
 
-    # Pack the scrollbars and text widget
+    
     v_scroll.pack(side='right', fill='y')
     h_scroll.pack(side='bottom', fill='x')
     text_widget.pack(side='left', fill='both', expand=True)
