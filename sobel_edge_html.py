@@ -68,7 +68,7 @@ def sobel_edge_html(img, scale=1, size=600, init_y=0, init_x=0, font_size = 4, g
         with open(r"C:\Users\allan\nvim\Python\ascii-art\index.html", "w") as file:
             file.write("<!DOCTYPE html>\n<html>\n<head>\n<title>ASCII Art</title>\n<style>\n")
             #file.write("body { background-color: black; color: white; }\n")
-            file.write("body { background-color: #341539; color: #DAB1DA; }\n")
+            file.write("body { background-color: #000000; color: #ffffff; }\n")
             file.write(f"pre {{ font-family: monospace; font-size: {font_size}px; line-height: {font_size + 1}px; }}\n")
             file.write("</style>\n</head>\n<body>\n<pre>\n")
 
@@ -89,5 +89,5 @@ def sobel_edge_html(img, scale=1, size=600, init_y=0, init_x=0, font_size = 4, g
         cv2.destroyAllWindows()
         
 
-#sobel_edge_html(r"C:\Users\allan\nvim\Python\ascii-art\images\elden.jpg", scale=1, size=2000, init_y=20, init_x=0)
+sobel_edge_html(r"C:\Users\allan\OneDrive\Pictures\nokron.png", scale=0.4, size=2000, init_y=1000, init_x=500, gradient_threshold=5)
 

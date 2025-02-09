@@ -9,13 +9,13 @@ def gbr_to_hex(rgb_array):
 
 
 def html_setup(font, size):
-    with open("index.html", "w") as file:
+    with open("C:/Users/allan/nvim/Python/ascii-art/index.html", "w") as file:
         file.write("<!DOCTYPE html><html><head>")
         file.write("<style>p.small {line-height: 0.8;}</style>")
         file.write("</head><body><p style='font-family: {0}' 'font-size={1}px' class='small'>".format(font, size))
 
 def html_close():
-    with open("index.html", "a") as file:
+    with open("C:/Users/allan/nvim/Python/ascii-art/index.html", "a") as file:
         file.write("</p></body></html>")
     print("HTML file successfully written.")
 
@@ -42,6 +42,6 @@ def color_ascii(img, scale):
     end = time.perf_counter()
     print("Time elapsed:{0}".format(end - start))
 
-color_ascii("us!.jpeg", 1)
+color_ascii(r"C:\Users\allan\OneDrive\Pictures\leyndel.jpg", 1)
 
 
